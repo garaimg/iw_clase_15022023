@@ -171,7 +171,52 @@ border-color: #e1e1e1;*/
     font-weight: 900;
 }
 
-.info-producto a{
+.listado-productos{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.producto:nth-child(1){
+    grid-column-start: 1; /* Ocupam todo lo ancho*/
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.producto:nth-child(1) img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+} /* Ponerlo bien con su repositorio, esto y btn*/
+
+.producto:nth-child(2){
+    grid-column-start: 1; 
+    grid-column-end: 4;
+}
+
+.producto:nth-child(3){
+    grid-column-start: 4; 
+    grid-column-end: 7;
+}
+
+.producto:nth-child(4){
+    grid-column-start: 1; 
+    grid-column-end: 3;
+}
+
+.producto:nth-child(5){
+    grid-column-start: 3; 
+    grid-column-end: 5;
+}
+
+.producto:nth-child(6){
+    grid-column-start: 5; 
+    grid-column-end: 7;
+}
+
+.btn{
     background-color: #8cbc00;
     display: block;
     color:white;
@@ -181,13 +226,44 @@ border-color: #e1e1e1;*/
     transition: background-color .3s ease-out;
 }
 
-.info-producto a:hover{
+.btn:hover{
     background-color: #769c02;
+} 
+
+.footer-div{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 2rem 20rem 0 15rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    margin-top: 60px;
 }
 
-.listado-productos{
-    display: flex; /* Display flex en el padre de todos los elementos, no en los hijos*/
+.navegacion{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
+.navegacion a{
+    padding: 5px;
+}
+
+.footer-div2{
+    margin-top: 10px;
+}
+
+.copyright{
+    text-align: center;
+}
+
 /*
 nav a:nth-child(2){
     text-transform: uppercase;
