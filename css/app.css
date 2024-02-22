@@ -1,3 +1,4 @@
+/*Poner esto siempre, es mejor*/
 html {
     box-sizing: border-box;
 }
@@ -8,19 +9,190 @@ html {
     box-sizing: inherit;
 }
 
-h1 {
-    font-size: 20px;
+/*Globales*/
+
+body{
+    font-family: "Raleway", sans-serif;
 }
 
-h1 span {
+img{
+    max-width: 100%; /*Para que cojan como mucho el 100% del contenedor en el que están*/
+    display: block; /* Poner siempre, queda mejor*/
+}
+
+
+h1 {
+    font-size: 50px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+h3{
+    font-size: 30px;
+    margin:0 0 50px 0;
+}
+
+h1, h2, h3{
+    font-family: "Playfair Display", serif;
+}
+
+/*h1 span {
     color: #037bc0;
 }
+*/
 
+a{
+    text-decoration: none;
+    color:#000
+}
+
+/*Cabecera*/
+
+.nombre-sitio{
+    color:rgba(0,0,0,1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.nombre-sitio span{
+    color:#037bc0;
+}
+
+.nav-principal{
+/*border-top-style: solid;
+border-width: 1px;
+border-color: #e1e1e1;*/
+    padding: 20px 0 20px 0; /* De arriba a abajo, en sentido de las agujas del reloj*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-navegacion{
+        border-top: 1px solid #e1e1e1; /* Con el border top aqui, la línea llega hasta el final, en el nav no llega hasta el final*/
+
+
+}
+
+.hero{
+    background-image: url(../img/principal.jpg);
+    background-repeat: no-repeat; /* Pantalla más grande -> Con una imagen no ocupa, pone más de una, si no queremos eso poner no-repeat*/
+    background-size: cover; /*Para que cubra el tamaño de todo el div (contenedor) que lo contiene */
+    background-position: center center;
+    height: 550px;
+}
+
+.contenedor{
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+/*main*/
+
+.listado-categorias{
+    display: grid; /* Display flex en el padre de todos los elementos, no en los hijos*/
+    grid-template-columns: 1fr 1fr 1fr; /*Huecos que reserva entre 1 y otro*/
+    gap: 20px;
+}
+
+.categorias{
+    padding-top: 50px;
+    margin-bottom: 15px;
+}
+
+.categorias a{
+    text-align: center;
+    display: block; /*Coge el bloque y lo centra*/
+    padding: 20px;
+    font-size: 20px;
+}
+.categorias a:hover{
+    background-color: #037bc0;
+    color: white;
+    border-bottom-right-radius: 10px;
+}
+.categorias h2{
+    text-align: center;
+}
+
+.sobre-nosotros{
+    display: flex;
+    height: 600px;
+}
+
+.box-1{
+    background-image: url(../img/nosotros.jpg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-basis: 50%;
+}
+
+.box-2{
+    background-color: #037bc0;
+    color:white;
+    text-align: justify;
+    padding: 25px;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+}
+
+/*main - listado productos*/
+
+.contenido-principal{
+    padding-top: 50px;
+}
+
+.producto{
+    background-color: #037bc0;
+}
+
+.info-producto{
+    text-align: center;
+    color:white;
+    padding: 20px;
+}
+
+.info-producto p{
+    margin: 0 0 5px 0;
+}
+
+.info-producto h3{
+    margin: 0;
+}
+
+.precio{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.info-producto a{
+    background-color: #8cbc00;
+    display: block;
+    color:white;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 10px;
+    transition: background-color .3s ease-out;
+}
+
+.info-producto a:hover{
+    background-color: #769c02;
+}
+
+.listado-productos{
+    display: flex; /* Display flex en el padre de todos los elementos, no en los hijos*/
+}
 /*
 nav a:nth-child(2){
     text-transform: uppercase;
 }*/
-nav a {
+/*nav a {
     text-transform: uppercase;
 }
 
@@ -51,3 +223,4 @@ nav a {
     width: 500px;
     padding: 100px;
 }
+*/
