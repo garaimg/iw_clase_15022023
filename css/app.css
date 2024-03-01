@@ -1,6 +1,9 @@
 /*Poner esto siempre, es mejor*/
 html {
     box-sizing: border-box;
+    font-size: 62.5%; /*con ese font-size 1 rem son 10 pixels, por eso pongo 62,5% 1 rem->16px
+                                                                x -> 10px ; x=0,625*/ /* ems 1em 2em 0.6em, depende del contenedor en el que está, es relativo al padre. 
+                                                                Primero pixels y despues poner eso y dividir entre 10 todas las medidas     / rems respecto al html inicial./vw vh */ 
 }
 
 *,
@@ -9,10 +12,12 @@ html {
     box-sizing: inherit;
 }
 
-/*Globales*/
+/*Globales, partes de un estilo con una base, después se modifica con clases etc.*/
+/*puedo hacer desktop-first con querys de max-width(768px)*/
 
 body{
     font-family: "Raleway", sans-serif;
+    font-size: 1.6rem; /*16/10 ->1,6 rem*/
 }
 
 img{
@@ -22,17 +27,33 @@ img{
 
 
 h1 {
-    font-size: 50px;
+    font-size: 4rem;
+}
+@media (min-width: 768px){ /*Si es mayor de 768, se hace. Media query para tamaños mayores de móvil con mobile first*/
+    h1 {
+    font-size: 5rem;
+    }
 }
 
 h2{
-    font-size: 40px;
+    font-size: 3.2rem;
+}
+@media (min-width: 768px){
+    h2{
+        font-size: 4rem;
+    }
 }
 
 h3{
-    font-size: 30px;
-    margin:0 0 50px 0;
+    font-size: 2.4rem;
+    margin:0 0 0.05rem 0;
 }
+@media (min-width: 768px){
+    h3{
+        font-size: 3rem;
+    }
+}
+
 
 h1, h2, h3{
     font-family: "Playfair Display", serif;
@@ -52,8 +73,8 @@ a{
 
 .nombre-sitio{
     color:rgba(0,0,0,1);
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     text-align: center;
 }
 
@@ -65,13 +86,21 @@ a{
 /*border-top-style: solid;
 border-width: 1px;
 border-color: #e1e1e1;*/
-    padding: 20px 0 20px 0; /* De arriba a abajo, en sentido de las agujas del reloj*/
+    padding: 2rem 0 2rem 0; /* De arriba a abajo, en sentido de las agujas del reloj*/
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px){
+    .nav-principal{ /*Solo poner lo que cambia, no hace falta copiar y pegar todo*/
+            flex-direction: row;
+            justify-content: space-between;
+        }
 }
 
 .contenedor-navegacion{
-        border-top: 1px solid #e1e1e1; /* Con el border top aqui, la línea llega hasta el final, en el nav no llega hasta el final*/
+        border-top: 0.1rem solid #e1e1e1; /* Con el border top aqui, la línea llega hasta el final, en el nav no llega hasta el final*/
 
 
 }
@@ -81,45 +110,64 @@ border-color: #e1e1e1;*/
     background-repeat: no-repeat; /* Pantalla más grande -> Con una imagen no ocupa, pone más de una, si no queremos eso poner no-repeat*/
     background-size: cover; /*Para que cubra el tamaño de todo el div (contenedor) que lo contiene */
     background-position: center center;
-    height: 550px;
+    height: 25rem;
+}
+
+@media (min-width:768px){
+    .hero{
+        height: 55rem;
+    }
 }
 
 .contenedor{
-    max-width: 1200px;
+    max-width: 120rem;
     margin-inline: auto;
 }
 
 /*main*/
-
-.listado-categorias{
-    display: grid; /* Display flex en el padre de todos los elementos, no en los hijos*/
-    grid-template-columns: 1fr 1fr 1fr; /*Huecos que reserva entre 1 y otro*/
-    gap: 20px;
+@media(min-width:768px){
+    .listado-categorias{
+        display: grid; /* Display flex en el padre de todos los elementos, no en los hijos*/
+        grid-template-columns: 1fr 1fr 1fr; /*Huecos que reserva entre 1 y otro*/
+        gap: 2rem;
+    }
 }
 
 .categorias{
-    padding-top: 50px;
-    margin-bottom: 15px;
+    padding-top: 5rem;
+    margin-bottom: 1.5rem;
 }
 
 .categorias a{
     text-align: center;
     display: block; /*Coge el bloque y lo centra*/
-    padding: 20px;
-    font-size: 20px;
+    padding: 2rem;
+    font-size: 2rem;
 }
 .categorias a:hover{
     background-color: #037bc0;
     color: white;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 1rem;
 }
 .categorias h2{
     text-align: center;
 }
 
-.sobre-nosotros{
-    display: flex;
-    height: 600px;
+@media(min-width:768px) {
+    .sobre-nosotros{
+        display: flex;
+        height: 60rem;
+        margin-top: 5rem;
+    }  
+    .box-1{
+        flex-basis: 50%;
+        height: 100%;
+    }
+    
+    .box-2{
+        flex-basis: 50%;
+        padding: 10rem;
+    }
 }
 
 .box-1{
@@ -127,39 +175,39 @@ border-color: #e1e1e1;*/
     background-position: left center;
     background-repeat: no-repeat;
     background-size: cover;
-    flex-basis: 50%;
+    height:100%; /* div uno detras de otro, se adapta al contenido*/
 }
 
 .box-2{
     background-color: #037bc0;
     color:white;
     text-align: justify;
-    padding: 25px;
-    flex-basis: 50%;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 100px;
+    padding: 4rem;
 }
 
 /*main - listado productos*/
 
 .contenido-principal{
-    padding-top: 50px;
+    padding-top: 5rem;
 }
 
 .producto{
     background-color: #037bc0;
+    margin-top: 2rem;
 }
 
 .info-producto{
     text-align: center;
     color:white;
-    padding: 20px;
+    padding: 2rem;
 }
 
 .info-producto p{
-    margin: 0 0 5px 0;
+    margin: 0 0 0.5rem 0;
 }
 
 .info-producto h3{
@@ -167,53 +215,82 @@ border-color: #e1e1e1;*/
 }
 
 .precio{
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 90;
 }
 
-.listado-productos{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 20px;
-    row-gap: 20px;
-}
+@media(min-width:768px){
+    .producto{
+     margin-bottom: 0;
+    }
+    .listado-productos{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
 
-.producto:nth-child(1){
-    grid-column-start: 1; /* Ocupam todo lo ancho*/
-    grid-column-end: 7;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
+    .producto:nth-child(1){
+        grid-column-start: 1;
+        grid-column-end: 7;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    .producto:nth-child(1) img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(2){
+    grid-column-start: 1;
+    grid-column-end: 4; 
+    }
+    .producto:nth-child(3){
+        grid-column-start: 4;
+        grid-column-end: 7; 
+    }
+    .producto:nth-child(2) img,
+    .producto:nth-child(3) img{
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(4){
+        grid-column-start: 1;
+        grid-column-end: 3; 
+    }
+    .producto:nth-child(5){
+        grid-column-start: 3;
+        grid-column-end: 5; 
+    }
+    .producto:nth-child(6){
+        grid-column-start: 5;
+        grid-column-end: 7; 
+    }
+    .producto:nth-child(4) img,
+    .producto:nth-child(5) img,
+    .producto:nth-child(6) img{
+        height: 25rem;
+        width: 100%;
+        object-fit: cover;
+    }
 
-.producto:nth-child(1) img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-} /* Ponerlo bien con su repositorio, esto y btn*/
+    
 
-.producto:nth-child(2){
-    grid-column-start: 1; 
-    grid-column-end: 4;
-}
+    .producto:nth-child(4){
+        grid-column-start: 1; 
+        grid-column-end: 3;
+    }
 
-.producto:nth-child(3){
-    grid-column-start: 4; 
-    grid-column-end: 7;
-}
+    .producto:nth-child(5){
+        grid-column-start: 3; 
+        grid-column-end: 5;
+    }
 
-.producto:nth-child(4){
-    grid-column-start: 1; 
-    grid-column-end: 3;
-}
-
-.producto:nth-child(5){
-    grid-column-start: 3; 
-    grid-column-end: 5;
-}
-
-.producto:nth-child(6){
-    grid-column-start: 5; 
-    grid-column-end: 7;
+    .producto:nth-child(6){
+        grid-column-start: 5; 
+        grid-column-end: 7;
+    }
 }
 
 .btn{
@@ -222,28 +299,28 @@ border-color: #e1e1e1;*/
     color:white;
     text-transform: uppercase;
     font-weight: 900;
-    padding: 10px;
+    padding: 1rem;
     transition: background-color .3s ease-out;
 }
 
 .btn:hover{
     background-color: #769c02;
 } 
-
+/* Como los divs son elementos de bloque se van a distribuir uno detrás de otro de por sí.*/
 .footer-div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
-    padding: 2rem 20rem 0 15rem;
+    padding: 2rem 2rem 0 1.5rem;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border-top: 1px solid black;
-    margin-top: 60px;
+    border-top: 0.1rem solid black;
+    margin-top: 6rem;
 }
 
 .navegacion{
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -252,12 +329,35 @@ border-color: #e1e1e1;*/
     align-items: flex-start;
 }
 
+@media(min-width:768px){
+    .navegacion{
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-div{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        padding: 2rem 2rem 0 1.5rem;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        border-top: 0.1rem solid black;
+        margin-top: 6rem;
+    }
+}
+
 .navegacion a{
-    padding: 5px;
+    padding: 0.5rem;
 }
 
 .footer-div2{
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .copyright{
